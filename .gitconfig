@@ -1,0 +1,39 @@
+[user]
+	name = Émile Plourde-Lavoie
+	email = nostradamus1935@echosvirtuels.com
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim -u ~/.vim/vimrc.git
+[alias]
+	st = status
+	co = checkout
+	praise = blame
+	cp = cherry-pick
+	changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo \"Changelog for $r\n$(git log --reverse --no-merges --format='* %s' $r)\"; }; f"
+	unstash = "stash pop"
+	peep = "stash list --stat"
+	dig = "stash show stash@{0} -v"
+	ponder = "branch -lv"
+	rbi = rebase -i
+	rbc = rebase --continue
+	rba = rebase --abort
+	rbs = rebase --skip
+	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
+	l = log --oneline --decorate
+	l1 = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate -n1
+	lf = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate --first-parent
+	ls = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate --stat
+	lp = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --patch
+	ci = commit
+	rb = rebase
+	preview = diff --staged
+	cia = commit --amend
+	resub = !sh -c 'git submodule init && git submodule sync && git submodule update'
+	trace = blame HEAD~1
+[push]
+	default = simple
+[rerere]
+	enabled = false
+[rebase]
+	autosquash = true
