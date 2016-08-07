@@ -1,0 +1,180 @@
+set nocompatible
+filetype plugin indent on
+
+function! BuildYCM(info)
+	if a:info.status == 'installed' || a:info.force
+		!./install.py
+	endif
+endfunction
+
+runtime! config/**/*.vim
+
+call plug#begin()
+	Plug 'tpope/vim-fugitive'
+	Plug 'benekastah/neomake'
+	Plug 'junegunn/fzf'
+	Plug 'raimondi/delimitmate'
+	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-repeat'
+	Plug 'kchmck/vim-coffee-script'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'matchit.zip'
+	Plug 'rodnaph/vim-color-schemes'
+	Plug 'itchyny/lightline.vim'
+	Plug 'mhinz/vim-grepper'
+"	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
+"	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
+call plug#end()
+
+if has('nvim')
+	" Adapted from 'mklabs/split-term.vim' " Neovim only
+	let s:force_vertical = exists('g:split_term_vertical') ? 1 : 0
+
+	fun! s:openBuffer(count, vertical)
+		let cmd = a:vertical ? 'vnew' : 'new'
+		let cmd = a:count ? a:count . cmd : cmd
+		exe cmd
+	endf
+
+	" Opens a new terminal buffer, but instead of doing so using 'enew' (same
+	" window), it uses :vnew and :new instead. Usually, I want to open a new
+	" terminal and not replace my current buffer.
+	fun! s:openTerm(args, count, vertical)
+		let params = split(a:args)
+		let direction = s:force_vertical ? 1 : a:vertical
+	
+		call s:openBuffer(a:count, direction)
+		exe 'terminal' a:args
+		exe 'startinsert'
+	endf
+
+	command! -count -nargs=* Term call s:openTerm(<q-args>, <count>, 0)
+	command! -count -nargs=* VTerm call s:openTerm(<q-args>, <count>, 1)
+
+	tnoremap <C-h> <Left>
+	tnoremap <C-j> <Down>
+	tnoremap <C-k> <Up>
+	tnoremap <C-l> <Right>
+
+	tnoremap <C-u> <PageUp>
+	tnoremap <C-b> <PageDown>
+endif
+
+set number               " show line numbers
+set ruler                " show the cursor position all the time
+set wildmenu             " 
+set cursorline           " highlight the current line
+set history=1000         " command history
+set shortmess=xtlI       " shorten some status messages
+set mouse=a              " enable mouse
+set showcmd              " display incomplete commands
+
+set autoindent
+set smarttab
+" make backspace behave like most other apps
+set backspace=indent,eol,start
+
+set complete-=i          " don't autocomplete in insert mode
+set display+=lastline    " display as much as possible of a long line
+set scrolloff=2          " display x lines above or below the cursor
+set sidescrolloff=5      " display y columns before or after the cursor
+set colorcolumn=100      " color background at this column
+
+set wrap linebreak showbreak=...
+set list listchars=eol:$,tab:▸\ ,nbsp:¬,trail:·
+set nolist
+nnoremap <F2> :set list!<CR>
+
+" Open netrw at current buffer path
+command! E :e %:p:h
+autocmd filetype netrw nmap <buffer> o <cr>
+
+nnoremap <F3> :set paste!<CR>
+nnoremap <F5> :make<CR>
+
+" Wrapped lines navigation that doesn't break counts
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
+
+set incsearch            " do incremental search
+set ignorecase smartcase " ignore case except when mixed case
+" Use <F4> to clear the highlighting of :set hlsearch.
+nnoremap <silent> <F4> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+
+" Search for the current selection (instead of word)
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch(cmdtype)
+	let temp = @
+	norm! gv"sy
+	let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+	let @s = temp
+endfunction
+
+syntax on
+set background=dark
+colorscheme jellybeans
+" " Allow color schemes to do bright colors without forcing bold.
+" if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+" 	set t_Co=16
+" endif
+
+
+" Indent with spaces
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" " Indent with tabs
+" set noexpandtab
+" set shiftwidth=2
+" set tabstop=2
+
+" Rotate tab sizes
+nnoremap <silent> <F6> :let &ts=(&ts*2 > 16 ? 2 : &ts*2)<CR>:echo "Tab size: " . &ts<CR>
+
+" Set backup directories to sensible values
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+" Easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Avoid losing undo history on ctrl-w and ctrl-u
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
+
+" Invert split opening
+set splitbelow
+set splitright
+
+" Easier tab navigation
+map T^ :tabfirst<CR>
+map T$ :tablast<CR>
+map TH :tabprev<CR>
+map Th :tabprev<CR>
+map TL :tabnext<CR>
+map Tl :tabnext<CR>
+map TT :tabnew<CR>
+map Tt :tabnew<CR>
+map TC :tabclose<CR>
+map Tc :tabclose<CR>
+
+" Remove whitespace in selected file types
+autocmd FileType coffee,ruby,eruby,html,scss,erlang autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+	\ | wincmd p | diffthis
+endif

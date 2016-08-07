@@ -1,0 +1,5 @@
+set nocompatible
+filetype indent on
+syntax on
+set background=dark
+colorscheme desert
