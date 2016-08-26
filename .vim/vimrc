@@ -102,6 +102,7 @@ noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
 set incsearch            " do incremental search
+set hlsearch             " do incremental search
 set ignorecase smartcase " ignore case except when mixed case
 " Use <F4> to clear the highlighting of :set hlsearch.
 nnoremap <silent> <F4> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
