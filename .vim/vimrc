@@ -125,15 +125,15 @@ colorscheme jellybeans
 " endif
 
 
-" Indent with spaces
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+" " Indent with spaces
+" set expandtab
+" set shiftwidth=4
+" set softtabstop=4
 
-" " Indent with tabs
-" set noexpandtab
-" set shiftwidth=2
-" set tabstop=2
+" Indent with tabs
+set noexpandtab
+set shiftwidth=4
+set tabstop=4
 
 " Rotate tab sizes
 nnoremap <silent> <F6> :let &ts=(&ts*2 > 16 ? 2 : &ts*2)<CR>:echo "Tab size: " . &ts<CR>
