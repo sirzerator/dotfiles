@@ -3,3 +3,4 @@ filetype indent on
 syntax on
 set background=dark
 colorscheme desert
+set laststatus=2

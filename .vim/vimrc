@@ -64,6 +64,7 @@ endif
 
 set number               " show line numbers
 set ruler                " show the cursor position all the time
+set laststatus=2         " always display status bar
 set wildmenu             " 
 set cursorline           " highlight the current line
 set history=1000         " command history
