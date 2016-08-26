@@ -1,4 +1,6 @@
 " FZF
-let g:fzf_height = '20%'
+if exists("g:plugs['fzf']")
+	let g:fzf_height = '20%'
 
-nnoremap <C-P> :FZF<CR>
+	nnoremap <C-P> :FZF<CR>
+endif

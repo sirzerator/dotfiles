@@ -7,8 +7,6 @@ function! BuildYCM(info)
 	endif
 endfunction
 
-runtime! config/**/*.vim
-
 call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'benekastah/neomake'
@@ -27,6 +25,8 @@ call plug#begin()
 "	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 "	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 call plug#end()
+
+runtime! config/**/*.vim
 
 if has('nvim')
 	" Adapted from 'mklabs/split-term.vim' " Neovim only
