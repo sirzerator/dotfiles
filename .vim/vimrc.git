@@ -1,6 +1,11 @@
 set nocompatible
 filetype indent on
 syntax on
+
 set background=dark
 colorscheme desert
+
+set statusline=%f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
 set laststatus=2
+
+set textwidth=72
