@@ -12,7 +12,8 @@ runtime! config/**/*.vim
 call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'benekastah/neomake'
-	Plug 'junegunn/fzf'
+"	Plug 'junegunn/fzf'
+	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'raimondi/delimitmate'
 	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 	Plug 'tpope/vim-surround'
