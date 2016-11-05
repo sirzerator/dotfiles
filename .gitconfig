@@ -32,6 +32,7 @@
 	cia = commit --amend
 	resub = !sh -c 'git submodule init && git submodule sync && git submodule update'
 	trace = blame HEAD~1
+	hups = push --force-with-lease
 [push]
 	default = simple
 [rerere]
