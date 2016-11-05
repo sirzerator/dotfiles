@@ -139,7 +139,8 @@ set shiftwidth=4
 set tabstop=4
 
 " Rotate tab sizes
-nnoremap <silent> <F6> :let &ts=(&ts*2 > 16 ? 2 : &ts*2)<CR>:let &sw=&ts<CR>:echo "Tab size: " . &ts<CR>
+nnoremap <silent> <F6> :let &ts=(&ts*2 > 16 ? 2 : &ts*2)<CR>:let &sw=&ts<CR>:let &sts=&ts<CR>:echo "Tab size: " . &ts<CR>
+nnoremap <silent> <F7> :set expandtab!<CR>:set expandtab?<CR>
 
 " Set backup directories to sensible values
 set backupdir=~/.vim/backup//
