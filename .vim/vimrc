@@ -127,16 +127,12 @@ colorscheme jellybeans
 " 	set t_Co=16
 " endif
 
-
-" " Indent with spaces
-" set expandtab
-" set shiftwidth=4
-" set softtabstop=4
-
-" Indent with tabs
+" Default indentation scheme
 set noexpandtab
+"set expandtab
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 
 " Rotate tab sizes
 nnoremap <silent> <F6> :let &ts=(&ts*2 > 16 ? 2 : &ts*2)<CR>:let &sw=&ts<CR>:let &sts=&ts<CR>:echo "Tab size: " . &ts<CR>
