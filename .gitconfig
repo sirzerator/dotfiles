@@ -5,7 +5,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim -u ~/.vim/vimrc.git
 [alias]
-	st = status
+	st = status --short --branch
 	co = checkout
 	praise = blame
 	cp = cherry-pick
