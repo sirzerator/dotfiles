@@ -25,6 +25,7 @@
 	lf = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate --first-parent
 	ls = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate --stat
 	lp = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --patch
+	lgh = log --pretty=fuller
 	ci = commit
 	rb = rebase
 	preview = diff --staged
