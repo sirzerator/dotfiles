@@ -1,3 +1,19 @@
 # alternate mappings for "page up" and "page down" to search the history
 "\e[5~": history-search-backward
 "\e[6~": history-search-forward
+
+set show-mode-in-prompt on
+
+set keymap emacs
+"\ea": vi-editing-mode
+
+set keymap vi-command
+"\ea": emacs-editing-mode
+
+set keymap vi-insert
+"\C-l": clear-screen
+"\C-k": history-search-backward
+"\C-j": history-search-forward
+"\ea": emacs-editing-mode
+
+set editing-mode vi
