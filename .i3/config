@@ -127,9 +127,6 @@ bar {
 
 assign [class="Clementine"] $workspace10
 
-exec clementine
-exec --no-startup-id ssh-add
-
 exec_always --no-startup-id xsetroot -solid "#002244"
 exec_always --no-startup-id $HOME/.i3/random_wallpaper.sh
 
