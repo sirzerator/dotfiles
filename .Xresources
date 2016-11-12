@@ -47,3 +47,6 @@ URxvt*color15: #FFFFFF
 
 ! White background to ssh-askpass
 ssh-askpass*background: #FFFFFF
+
+! default cursor theme
+Xcursor.theme: neutral
