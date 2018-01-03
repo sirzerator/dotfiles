@@ -1,6 +1,11 @@
 set nocompatible
 filetype plugin indent on
 
+" Utility methods
+function! g:IsOnBattery()
+	return readfile('/sys/class/power_supply/AC/online') == ['0']
+endfunction
+
 function! BuildYCM(info)
 	if a:info.status == 'installed' || a:info.force
 		!./install.py
@@ -170,6 +175,23 @@ map TT :tabnew<CR>
 map Tt :tabnew<CR>
 map TC :tabclose<CR>
 map Tc :tabclose<CR>
+
+" Smart linejoins
+if v:version > 703 || v:version == 703 && has('patch541')
+	set formatoptions+=j
+endif
+
+" Enter and Backspace operate on paragraphs
+nnoremap <BS> {
+onoremap <BS> {
+vnoremap <BS> {
+nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+vnoremap <CR> }
+
+" Keep selections when indenting
+vnoremap < <gv
+vnoremap > >gv
 
 " Remove whitespace in selected file types
 autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python autocmd BufWritePre <buffer> :%s/\s\+$//e
