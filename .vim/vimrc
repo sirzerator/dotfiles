@@ -100,6 +100,7 @@ set wrap linebreak showbreak=...
 set list listchars=eol:$,tab:▸\ ,nbsp:¬,trail:·
 set nolist
 nnoremap <F2> :set list!<CR>
+nnoremap <F10> :redraw!<CR>
 
 " Open netrw at current buffer path
 command! E :e %:p:h
