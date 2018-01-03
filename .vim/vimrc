@@ -12,6 +12,7 @@ function! BuildYCM(info)
 	endif
 endfunction
 
+" Plugins
 call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'benekastah/neomake'
@@ -32,10 +33,12 @@ call plug#begin()
 "	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 	Plug 'pangloss/vim-javascript'
 	Plug 'mxw/vim-jsx'
+	Plug 'wincent/terminus'
 call plug#end()
 
 runtime! config/**/*.vim
 
+" Neovim
 if has('nvim')
 	" Adapted from 'mklabs/split-term.vim' " Neovim only
 	let s:force_vertical = exists('g:split_term_vertical') ? 1 : 0
@@ -70,6 +73,7 @@ if has('nvim')
 	tnoremap <C-b> <PageDown>
 endif
 
+" Configuration
 set number               " show line numbers
 set ruler                " show the cursor position all the time
 set laststatus=2         " always display status bar
@@ -100,7 +104,7 @@ nnoremap <F2> :set list!<CR>
 command! E :e %:p:h
 autocmd filetype netrw nmap <buffer> o <cr>
 
-nnoremap <F3> :set paste!<CR>
+" nnoremap <F3> :set paste!<CR> " Handled by terminus
 nnoremap <F5> :make<CR>
 
 " Wrapped lines navigation that doesn't break counts
