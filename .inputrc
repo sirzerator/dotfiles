@@ -17,3 +17,7 @@ set keymap vi-insert
 "\ea": emacs-editing-mode
 
 set editing-mode vi
+set vi-cmd-mode-string : \e[0m
+set vi-ins-mode-string i \e[0m
+#set vi-cmd-mode-string \e[38;5;110;5m: \e[0m
+#set vi-ins-mode-string \e[38;5;150mi \e[0m
