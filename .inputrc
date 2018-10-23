@@ -16,8 +16,9 @@ set keymap vi-insert
 "\C-j": history-search-forward
 "\ea": emacs-editing-mode
 
+set bind-tty-special-chars off
+"\C-w": unix-filename-rubout
+
 set editing-mode vi
-set vi-cmd-mode-string : \e[0m
-set vi-ins-mode-string i \e[0m
-#set vi-cmd-mode-string \e[38;5;110;5m: \e[0m
-#set vi-ins-mode-string \e[38;5;150mi \e[0m
+set vi-cmd-mode-string :\ 
+set vi-ins-mode-string +\ 
