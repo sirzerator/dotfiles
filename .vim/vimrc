@@ -16,7 +16,7 @@ endfunction
 call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'benekastah/neomake'
-"	Plug 'junegunn/fzf'
+"	Plug 'junegunn/fzf' " Works better with split terminals
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'raimondi/delimitmate'
 	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
@@ -35,13 +35,18 @@ call plug#begin()
 	Plug 'mxw/vim-jsx'
 	Plug 'rust-lang/rust.vim'
 	Plug 'wincent/terminus'
+	Plug 'posva/vim-vue'
+	Plug 'noahfrederick/vim-skeleton'
+	Plug 'mbbill/undotree'
+	Plug 'fatih/vim-go'
+	Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 runtime! config/**/*.vim
 
 " Neovim
 if has('nvim')
-	" Adapted from 'mklabs/split-term.vim' " Neovim only
+	" Adapted from 'mklabs/split-term.vim'
 	let s:force_vertical = exists('g:split_term_vertical') ? 1 : 0
 
 	fun! s:openBuffer(count, vertical)
@@ -80,10 +85,12 @@ set ruler                " show the cursor position all the time
 set laststatus=2         " always display status bar
 set wildmenu             " 
 set cursorline           " highlight the current line
-set history=1000         " command history
 set shortmess=xtlI       " shorten some status messages
 set mouse=a              " enable mouse
 set showcmd              " display incomplete commands
+if &history < 10000
+	set history=10000    " command history
+endif
 
 set autoindent
 set smarttab
@@ -102,6 +109,7 @@ set nolist
 nnoremap <F2> :set list!<CR>
 nnoremap <F10> :redraw!<CR>
 
+let g:netrw_banner=0
 " Open netrw at current buffer path
 command! E :e %:p:h
 autocmd filetype netrw nmap <buffer> o <cr>
@@ -200,7 +208,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remove whitespace in selected file types
-autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
