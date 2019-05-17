@@ -20,11 +20,11 @@
 	rbs = rebase --skip
 	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
-	l = log --oneline --decorate
-	l1 = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate -n1
-	lf = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate --first-parent
-	ls = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --decorate --stat
-	lp = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset' --patch
+	l = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	l1 = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --decorate -n1
+	lf = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --decorate --first-parent
+	ls = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --decorate --stat
+	lp = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --patch
 	lgh = log --pretty=fuller
 	ci = commit
 	rb = rebase
@@ -33,9 +33,12 @@
 	resub = !sh -c 'git submodule init && git submodule sync && git submodule update'
 	trace = blame HEAD~1
 	hups = push --force-with-lease
+	trash = stash drop
 [push]
 	default = simple
 [rerere]
 	enabled = false
 [rebase]
 	autosquash = true
+[cola]
+	spellcheck = false
