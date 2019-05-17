@@ -14,6 +14,17 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
+# Low on memory ? Abort everything
+if test "$(LANG="C" vmstat -s -SM | grep free | sed -e 's/^[[:space:]]*//' | cut -d' ' -f 1 | paste -s -d+ - | bc)" -lt 500
+then
+	echo 'LOW ON MEMORY'
+	echo '+ ps au --sort -rss | head'
+	ps au --sort -rss | head
+	BIGGEST_OFFENDER=$(ps au --sort -rss | head -n 2 | tail -n 1 | sed -e 's/  \+/ /g' | cut -d' ' -f 2)
+	read -p 'What should I `kill -9` ? ' -i $BIGGEST_OFFENDER -e KILLPID && sudo kill -9 $KILLPID
+	return
+fi
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
 	xterm-color|*-256color) color_prompt=yes;;
