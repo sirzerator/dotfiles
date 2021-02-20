@@ -14,6 +14,7 @@ endfunction
 
 " Plugins
 call plug#begin()
+	Plug 'elixir-lang/vim-elixir'
 	Plug 'tpope/vim-fugitive'
 	Plug 'benekastah/neomake'
 	Plug 'junegunn/fzf'
