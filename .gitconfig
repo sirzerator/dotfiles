@@ -9,6 +9,7 @@
 	co = checkout
 	praise = blame
 	cp = cherry-pick
+	cpc = cherry-pick --continue
 	changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo \"Changelog for $r\n$(git log --reverse --no-merges --format='* %s' $r)\"; }; f"
 	unstash = "stash pop"
 	peep = "stash list --stat"
@@ -34,6 +35,7 @@
 	trace = blame HEAD~1
 	hups = push --force-with-lease
 	trash = stash drop
+	shuffle = "!f() { git rm -r --cached . && git add .; }; f"
 [push]
 	default = simple
 [rerere]
@@ -42,3 +44,5 @@
 	autosquash = true
 [cola]
 	spellcheck = false
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
