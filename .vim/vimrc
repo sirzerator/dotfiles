@@ -19,6 +19,7 @@ call plug#begin()
 	Plug 'benekastah/neomake'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
+"	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'raimondi/delimitmate'
 	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 	Plug 'tpope/vim-surround'
@@ -28,6 +29,7 @@ call plug#begin()
 	Plug 'matchit.zip'
 	Plug 'rodnaph/vim-color-schemes'
 	Plug 'itchyny/lightline.vim'
+"	Plug 'mhinz/vim-grepper'
 	Plug 'mattn/emmet-vim'
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
@@ -211,7 +213,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remove whitespace in selected file types
-autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -220,3 +222,6 @@ if !exists(":DiffOrig")
 	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 	\ | wincmd p | diffthis
 endif
+
+" Hide banner in netrw ssh navigation
+let g:netrw_sftp_cmd="sftp -q"
