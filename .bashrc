@@ -21,7 +21,8 @@ then
 	echo '+ ps au --sort -rss | head'
 	ps au --sort -rss | head
 	BIGGEST_OFFENDER=$(ps au --sort -rss | head -n 2 | tail -n 1 | sed -e 's/  \+/ /g' | cut -d' ' -f 2)
-	read -p 'What should I `kill -9` ? ' -i $BIGGEST_OFFENDER -e KILLPID && sudo kill -9 $KILLPID
+	read -p 'What should I `kill -9` ? ' -i $BIGGEST_OFFENDER -e KILLPID && kill -9 $KILLPID
+	echo "kill -9 $KILLPID" >> ~/.bash_history
 	return
 fi
 
