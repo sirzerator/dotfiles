@@ -1,7 +1,8 @@
 \set QUIET
 \set COMP_KEYWORD_CASE upper
 \set ON_ERROR_ROLLBACK interactive
-\x auto
+\pset expanded auto
 \pset null ¤
 \timing on
+\setenv LESS -X
 \unset QUIET
