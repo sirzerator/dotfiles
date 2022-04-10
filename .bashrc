@@ -101,22 +101,30 @@ source ~/.wp-completion.bash
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 export NVM_DIR="/home/emile/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 function generate_prompt() {
+	local last_command_exit_code=$?
+
+	if [ $last_command_exit_code -eq 0 ]; then
+		STATUS_PROMPT='\$'
+	else
+		STATUS_PROMPT=`echo -e "\[\033[1;31m\]($last_command_exit_code)\[\033[0m\] "'\$'""`
+
+	fi
+
 	GIT_PROMPT=$(__git_ps1 "(%s)")
 	if [ -n "$GIT_PROMPT" ]; then
 		GIT_PROMPT="$GIT_PROMPT "
 	fi
 
 	VIM_MODE=${PS1:0:0}
-	ACTUAL_PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] [$(date '+%Y-%m-%d %T')]\n \$ "
-
-	PS1="$VIM_MODE$GIT_PROMPT$ACTUAL_PS1"
+	ACTUAL_PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] [$(date '+%Y-%m-%d %T')]\n $STATUS_PROMPT "
+PS1="$VIM_MODE$GIT_PROMPT$ACTUAL_PS1"
 }
 
-export PROMPT_COMMAND='generate_prompt'
+export PROMPT_COMMAND="generate_prompt"
 
 export VAGRANT_ALIAS_FILE="~/.vagrant_aliases"
 
