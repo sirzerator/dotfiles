@@ -26,9 +26,9 @@ call plug#begin()
 	Plug 'tpope/vim-repeat'
 	Plug 'kchmck/vim-coffee-script'
 	Plug 'airblade/vim-gitgutter'
-	Plug 'matchit.zip'
-	Plug 'rodnaph/vim-color-schemes'
+	Plug 'vim-scripts/matchit.zip'
 	Plug 'itchyny/lightline.vim'
+	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 "	Plug 'mattn/emmet-vim'
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
