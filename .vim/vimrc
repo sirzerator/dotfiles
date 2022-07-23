@@ -90,7 +90,7 @@ set laststatus=2         " always display status bar
 set wildmenu             "
 set cursorline           " highlight the current line
 set shortmess=xtlI       " shorten some status messages
-set mouse=a              " enable mouse
+set mouse=               " disable mouse
 set showcmd              " display incomplete commands
 if &history < 10000
 	set history=10000    " command history
