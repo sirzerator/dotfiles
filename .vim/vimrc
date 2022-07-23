@@ -110,7 +110,8 @@ set colorcolumn=120      " color background at this column
 set wrap linebreak showbreak=...
 set list listchars=eol:$,tab:▸\ ,nbsp:¬,trail:·
 set nolist
-nnoremap <F2> :set list!<CR>
+nnoremap <F2> :Git<CR>
+nnoremap <F8> :set list!<CR>
 nnoremap <F10> :redraw!<CR>
 
 " Open netrw at current buffer path
@@ -171,6 +172,8 @@ set undodir=~/.vim/undo//
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
+" Remap NetRwRefresh to avoid conflict
+nmap <unique> <C-.> <Plug>NetrwRefresh
 nnoremap <C-H> <C-W><C-H>
 
 " Avoid losing undo history on ctrl-w and ctrl-u
