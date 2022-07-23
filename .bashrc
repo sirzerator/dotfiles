@@ -96,13 +96,19 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# wp-cli
 source ~/.wp-completion.bash
 
+# phpbrew
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
+# NVM
 export NVM_DIR="/home/emile/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Cargo
+[ -s "$NVM_DIR/nvm.sh" ] &&. "$HOME/.cargo/env"
 
 function generate_prompt() {
 	local last_command_exit_code=$?

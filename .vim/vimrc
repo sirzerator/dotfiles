@@ -30,7 +30,7 @@ call plug#begin()
 	Plug 'rodnaph/vim-color-schemes'
 	Plug 'itchyny/lightline.vim'
 "	Plug 'mhinz/vim-grepper'
-	Plug 'mattn/emmet-vim'
+"	Plug 'mattn/emmet-vim'
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 	Plug 'pangloss/vim-javascript'
@@ -66,7 +66,7 @@ if has('nvim')
 	fun! s:openTerm(args, count, vertical)
 		let params = split(a:args)
 		let direction = s:force_vertical ? 1 : a:vertical
-	
+
 		call s:openBuffer(a:count, direction)
 		exe 'terminal' a:args
 		exe 'startinsert'
@@ -88,7 +88,7 @@ endif
 set number               " show line numbers
 set ruler                " show the cursor position all the time
 set laststatus=2         " always display status bar
-set wildmenu             " 
+set wildmenu             "
 set cursorline           " highlight the current line
 set shortmess=xtlI       " shorten some status messages
 set mouse=a              " enable mouse
@@ -106,7 +106,7 @@ set complete-=i          " don't autocomplete in insert mode
 set display+=lastline    " display as much as possible of a long line
 set scrolloff=2          " display x lines above or below the cursor
 set sidescrolloff=5      " display y columns before or after the cursor
-set colorcolumn=100      " color background at this column
+set colorcolumn=120      " color background at this column
 
 set wrap linebreak showbreak=...
 set list listchars=eol:$,tab:▸\ ,nbsp:¬,trail:·
@@ -114,7 +114,6 @@ set nolist
 nnoremap <F2> :set list!<CR>
 nnoremap <F10> :redraw!<CR>
 
-let g:netrw_banner=0
 " Open netrw at current buffer path
 command! E :e %:p:h
 autocmd filetype netrw nmap <buffer> o <cr>
@@ -213,7 +212,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remove whitespace in selected file types
-autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript,yaml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
