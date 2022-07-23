@@ -19,7 +19,6 @@ call plug#begin()
 	Plug 'benekastah/neomake'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
-"	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'raimondi/delimitmate'
 	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 	Plug 'tpope/vim-surround'
@@ -29,7 +28,6 @@ call plug#begin()
 	Plug 'matchit.zip'
 	Plug 'rodnaph/vim-color-schemes'
 	Plug 'itchyny/lightline.vim'
-"	Plug 'mhinz/vim-grepper'
 "	Plug 'mattn/emmet-vim'
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
@@ -66,7 +64,7 @@ if has('nvim')
 	fun! s:openTerm(args, count, vertical)
 		let params = split(a:args)
 		let direction = s:force_vertical ? 1 : a:vertical
-
+	
 		call s:openBuffer(a:count, direction)
 		exe 'terminal' a:args
 		exe 'startinsert'
