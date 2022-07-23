@@ -114,6 +114,7 @@ nnoremap <F2> :Git<CR>
 nnoremap <F8> :set list!<CR>
 nnoremap <F10> :redraw!<CR>
 
+let g:netrw_banner=0
 " Open netrw at current buffer path
 command! E :e %:p:h
 autocmd filetype netrw nmap <buffer> o <cr>
