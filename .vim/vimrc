@@ -14,34 +14,34 @@ endfunction
 
 " Plugins
 call plug#begin()
+	Plug 'airblade/vim-gitgutter'
 	Plug 'elixir-lang/vim-elixir'
-	Plug 'tpope/vim-fugitive'
+	Plug 'evanleck/vim-svelte', { 'branch': 'main' }
+	Plug 'fatih/vim-go'
+	Plug 'itchyny/lightline.vim'
+	Plug 'jceb/vim-orgmode'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
-	Plug 'evanleck/vim-svelte', { 'branch': 'main' }
-	Plug 'raimondi/delimitmate'
-	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-repeat'
-	Plug 'kchmck/vim-coffee-script'
-	Plug 'airblade/vim-gitgutter'
-	Plug 'vim-scripts/matchit.zip'
-	Plug 'itchyny/lightline.vim'
-	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
-	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
-	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
-	Plug 'pangloss/vim-javascript'
-	Plug 'mxw/vim-jsx'
-	Plug 'rust-lang/rust.vim'
-	Plug 'wincent/terminus'
-	Plug 'posva/vim-vue'
-	Plug 'noahfrederick/vim-skeleton'
-	Plug 'mbbill/undotree'
-	Plug 'fatih/vim-go'
-	Plug 'leafgarland/typescript-vim'
 	Plug 'jwalton512/vim-blade'
-	Plug 'jceb/vim-orgmode'
+	Plug 'kchmck/vim-coffee-script'
+	Plug 'leafgarland/typescript-vim'
+	Plug 'mbbill/undotree'
+	Plug 'mxw/vim-jsx'
+	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
+	Plug 'noahfrederick/vim-skeleton'
+	Plug 'pangloss/vim-javascript'
+	Plug 'posva/vim-vue'
+	Plug 'raimondi/delimitmate'
+	Plug 'rust-lang/rust.vim'
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
+	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-speeddating'
+	Plug 'tpope/vim-surround'
+	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
+	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
+	Plug 'vim-scripts/matchit.zip'
+	Plug 'wincent/terminus'
 call plug#end()
 
 runtime! config/**/*.vim
