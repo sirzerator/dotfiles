@@ -47,7 +47,7 @@ case "$TERM" in
 	xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# enable color support of ls and also add handy aliases
+# enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
@@ -74,19 +74,19 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-# Custom configuration
+# Apps configuration
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
-# composer
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
+# composer
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -97,13 +97,10 @@ source ~/.wp-completion.bash
 # phpbrew
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
-# NVM
+# nvm
 export NVM_DIR="/home/emile/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# Cargo
-[ -s "$NVM_DIR/nvm.sh" ] &&. "$HOME/.cargo/env"
 
 function generate_prompt() {
 	local last_command_exit_code=$?
