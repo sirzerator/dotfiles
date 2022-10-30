@@ -132,6 +132,6 @@ PS1="$VIM_MODE$GIT_PROMPT$ACTUAL_PS1"
 
 export PROMPT_COMMAND="generate_prompt"
 
-export VAGRANT_ALIAS_FILE="~/.vagrant_aliases"
+export VAGRANT_ALIAS_FILE="~/.config/vagrant_aliases"
 
 export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
