@@ -220,6 +220,14 @@ if !exists(":DiffOrig")
 	\ | wincmd p | diffthis
 endif
 
+" Terminal
+map <Leader>tv :vert term ++close<cr>
+tmap <Leader>tv <c-w>vert :term ++close<cr>
+map <Leader>th :term ++close<cr>
+tmap <Leader>th <c-w>:term ++close<cr>
+map <Leader>T :tab term ++close<cr>
+tmap <Leader>T <c-w>:tab term ++close<cr>
+
 " Hide banner in netrw ssh navigation
 let g:netrw_sftp_cmd="sftp -q"
 
