@@ -14,7 +14,6 @@ endfunction
 
 " Plugins
 call plug#begin()
-	Plug 'airblade/vim-gitgutter'
 	Plug 'elixir-lang/vim-elixir'
 	Plug 'evanleck/vim-svelte', { 'branch': 'main' }
 	Plug 'fatih/vim-go'
@@ -26,6 +25,7 @@ call plug#begin()
 	Plug 'kchmck/vim-coffee-script'
 	Plug 'leafgarland/typescript-vim'
 	Plug 'mbbill/undotree'
+	Plug 'mhinz/vim-signify'
 	Plug 'mxw/vim-jsx'
 	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 	Plug 'noahfrederick/vim-skeleton'
@@ -171,9 +171,6 @@ set undodir=~/.vim/undo//
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-" Remap NetRwRefresh to avoid conflict
-nmap <unique> <C-.> <Plug>NetrwRefresh
-nnoremap <C-H> <C-W><C-H>
 
 " Avoid losing undo history on ctrl-w and ctrl-u
 inoremap <C-U> <C-G>u<C-U>
@@ -225,3 +222,7 @@ endif
 
 " Hide banner in netrw ssh navigation
 let g:netrw_sftp_cmd="sftp -q"
+
+" Remap NetRwRefresh to avoid conflict
+nmap <unique> <C-.> <Plug>NetrwRefresh
+nnoremap <C-H> <C-W><C-H>
