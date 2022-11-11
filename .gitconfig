@@ -1,9 +1,10 @@
 [user]
 	name = Émile Plourde-Lavoie
-	email = nostradamus1935@echosvirtuels.com
+	email = emile@echosvirtuels.com
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim -u ~/.vim/vimrc.git
+	pager = less -X
 [alias]
 	st = status --short --branch
 	co = checkout
@@ -38,11 +39,14 @@
 	shuffle = "!f() { git rm -r --cached . && git add .; }; f"
 [push]
 	default = simple
+	autoSetupRemote = true
 [rerere]
 	enabled = false
 [rebase]
 	autosquash = true
 [cola]
 	spellcheck = false
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
+[init]
+	defaultBranch = master
+[advice]
+	detachedHead = false
