@@ -19,6 +19,7 @@ call plug#begin()
 	Plug 'fatih/vim-go'
 	Plug 'itchyny/lightline.vim'
 	Plug 'jceb/vim-orgmode'
+	Plug 'joshdick/onedark.vim'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'jwalton512/vim-blade'
@@ -27,9 +28,9 @@ call plug#begin()
 	Plug 'mbbill/undotree'
 	Plug 'mhinz/vim-signify'
 	Plug 'mxw/vim-jsx'
-	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 	Plug 'noahfrederick/vim-skeleton'
 	Plug 'pangloss/vim-javascript'
+	Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 	Plug 'posva/vim-vue'
 	Plug 'raimondi/delimitmate'
 	Plug 'rust-lang/rust.vim'
@@ -41,51 +42,17 @@ call plug#begin()
 	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 	Plug 'vim-scripts/matchit.zip'
+	Plug 'w0rp/ale'
 	Plug 'wincent/terminus'
 call plug#end()
 
 runtime! config/**/*.vim
 
-" Neovim
-if has('nvim')
-	" Adapted from 'mklabs/split-term.vim'
-	let s:force_vertical = exists('g:split_term_vertical') ? 1 : 0
-
-	fun! s:openBuffer(count, vertical)
-		let cmd = a:vertical ? 'vnew' : 'new'
-		let cmd = a:count ? a:count . cmd : cmd
-		exe cmd
-	endf
-
-	" Opens a new terminal buffer, but instead of doing so using 'enew' (same
-	" window), it uses :vnew and :new instead. Usually, I want to open a new
-	" terminal and not replace my current buffer.
-	fun! s:openTerm(args, count, vertical)
-		let params = split(a:args)
-		let direction = s:force_vertical ? 1 : a:vertical
-	
-		call s:openBuffer(a:count, direction)
-		exe 'terminal' a:args
-		exe 'startinsert'
-	endf
-
-	command! -count -nargs=* Term call s:openTerm(<q-args>, <count>, 0)
-	command! -count -nargs=* VTerm call s:openTerm(<q-args>, <count>, 1)
-
-	tnoremap <C-h> <Left>
-	tnoremap <C-j> <Down>
-	tnoremap <C-k> <Up>
-	tnoremap <C-l> <Right>
-
-	tnoremap <C-u> <PageUp>
-	tnoremap <C-b> <PageDown>
-endif
-
 " Configuration
 set number               " show line numbers
 set ruler                " show the cursor position all the time
 set laststatus=2         " always display status bar
-set wildmenu             "
+set wildmenu             " 
 set cursorline           " highlight the current line
 set shortmess=xtlI       " shorten some status messages
 set mouse=               " disable mouse
@@ -145,7 +112,7 @@ endfunction
 
 syntax on
 set background=dark
-colorscheme jellybeans
+colorscheme onedark
 " " Allow color schemes to do bright colors without forcing bold.
 " if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
 " 	set t_Co=16
@@ -163,14 +130,18 @@ nnoremap <silent> <F6> :let &ts=(&ts*2 > 16 ? 2 : &ts*2)<CR>:let &sw=&ts<CR>:let
 nnoremap <silent> <F7> :set expandtab!<CR>:set expandtab?<CR>
 
 " Set backup directories to sensible values
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+set undofile
+set undodir=~/.vim/undo
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
+" Remap NetRwRefresh to avoid conflict
+nmap <unique> <C-.> <Plug>NetrwRefresh
+nnoremap <C-H> <C-W><C-H>
 
 " Avoid losing undo history on ctrl-w and ctrl-u
 inoremap <C-U> <C-G>u<C-U>
@@ -210,7 +181,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remove whitespace in selected file types
-autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript,yaml autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -220,6 +191,9 @@ if !exists(":DiffOrig")
 	\ | wincmd p | diffthis
 endif
 
+" Hide banner in netrw ssh navigation
+let g:netrw_sftp_cmd="sftp -q"
+
 " Terminal
 map <Leader>tv :vert term ++close<cr>
 tmap <Leader>tv <c-w>vert :term ++close<cr>
@@ -228,9 +202,18 @@ tmap <Leader>th <c-w>:term ++close<cr>
 map <Leader>T :tab term ++close<cr>
 tmap <Leader>T <c-w>:tab term ++close<cr>
 
-" Hide banner in netrw ssh navigation
-let g:netrw_sftp_cmd="sftp -q"
-
-" Remap NetRwRefresh to avoid conflict
-nmap <unique> <C-.> <Plug>NetrwRefresh
-nnoremap <C-H> <C-W><C-H>
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
