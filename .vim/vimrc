@@ -34,6 +34,7 @@ call plug#begin()
 	Plug 'posva/vim-vue'
 	Plug 'raimondi/delimitmate'
 	Plug 'rust-lang/rust.vim'
+	Plug 'slashmili/alchemist.vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 	Plug 'tpope/vim-repeat'
