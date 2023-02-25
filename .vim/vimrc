@@ -201,6 +201,7 @@ map <Leader>th :term ++close<cr>
 tmap <Leader>th <c-w>:term ++close<cr>
 map <Leader>T :tab term ++close<cr>
 tmap <Leader>T <c-w>:tab term ++close<cr>
+set termwinkey=<C-[>
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
