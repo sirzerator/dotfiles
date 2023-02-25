@@ -9,3 +9,5 @@ set laststatus=2
 
 set textwidth=72
 set backspace=indent,eol,start
+
+startinsert
