@@ -1,4 +1,3 @@
-" FZF
 if exists("g:plugs['fzf']")
 	let g:fzf_height = '40%'
 

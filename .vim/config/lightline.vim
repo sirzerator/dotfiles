@@ -1,4 +1,3 @@
-" Lightline
 if exists("g:plugs['lightline.vim']")
 	set laststatus=2
 

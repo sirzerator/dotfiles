@@ -1,7 +1,5 @@
-" ALE
 if exists("g:plugs['ale']")
-
-" phpcs, phpcbf: composer require --dev "squizlabs/php_codesniffer=*"
+	" phpcs, phpcbf: composer require --dev "squizlabs/php_codesniffer=*"
 	let g:ale_linters = {'php': ['php', 'phpcs']}
 	let g:ale_fixers = {'php': ['phpcbf']}
 
