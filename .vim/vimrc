@@ -19,7 +19,6 @@ call plug#begin()
 	Plug 'fatih/vim-go'
 	Plug 'itchyny/lightline.vim'
 	Plug 'jceb/vim-orgmode'
-	Plug 'joshdick/onedark.vim'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'jwalton512/vim-blade'
@@ -28,6 +27,7 @@ call plug#begin()
 	Plug 'mbbill/undotree'
 	Plug 'mhinz/vim-signify'
 	Plug 'mxw/vim-jsx'
+	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 	Plug 'noahfrederick/vim-skeleton'
 	Plug 'pangloss/vim-javascript'
 	Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
@@ -112,7 +112,7 @@ endfunction
 
 syntax on
 set background=dark
-colorscheme onedark
+colorscheme jellybeans
 " " Allow color schemes to do bright colors without forcing bold.
 " if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
 " 	set t_Co=16

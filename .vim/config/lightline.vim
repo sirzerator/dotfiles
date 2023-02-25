@@ -3,7 +3,7 @@ if exists("g:plugs['lightline.vim']")
 	set laststatus=2
 
 	let g:lightline = {
-	\ 'colorscheme': 'onedark',
+	\ 'colorscheme': 'jellybeans',
 	\ 'separator': { 'left': '', 'right': '' },
 	\ 'subseparator': { 'left': '', 'right': '' },
 	\ 'active': {
