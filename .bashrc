@@ -7,7 +7,7 @@ case $- in
 esac
 
 # History configuration
-HISTCONTROL=ignoreboth # Ignore duplicates and liens starting with a space
+HISTCONTROL=ignoreboth # Ignore duplicates and lines starting with a space
 shopt -s histappend # Append to the history file, don't overwrite it
 HISTSIZE=-1 # Remember everything
 HISTFILESIZE=100000 # Only save the last 100 000 lines
@@ -23,10 +23,12 @@ function panic() {
 	return
 };
 
-if test "$(LANG="C" vmstat -s -SM | grep free | sed -e 's/^[[:space:]]*//' | cut -d' ' -f 1 | paste -s -d+ - | bc)" -lt 500
+FREEMEM=$(LANG="C" vmstat -s -SM | grep free | sed -e 's/^[[:space:]]*//' | cut -d' ' -f 1 | cat - <(echo "0") | paste -s -d+ - | bc)
+if test $FREEMEM -gt 0 && test $FREEMEM -lt 500
 then
 	panic
 fi
+unset FREEMEM
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
