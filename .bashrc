@@ -79,7 +79,24 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+export PATH="$PATH:/home/emile/.local/bin"
+
 # Apps configuration
+
+# Python
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+function _virtualenv_info(){
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+	python_version="$(python --version | cut -d' ' -f2)"
+    [[ -n "$venv" ]] && echo "[$python_version:$venv] "
+}
 
 # go
 export GOPATH="$HOME/go"
@@ -111,8 +128,6 @@ export NVM_DIR="/home/emile/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-# pipx
-export PATH="$PATH:/home/emile/.local/bin"
 
 function generate_prompt() {
 	local last_command_exit_code=$?
