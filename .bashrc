@@ -1,3 +1,5 @@
+export EDITOR=/usr/bin/vim
+
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
