@@ -20,13 +20,13 @@
 	rbc = rebase --continue
 	rba = rebase --abort
 	rbs = rebase --skip
-	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
-	l = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-	l1 = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --decorate -n1
-	lf = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --decorate --first-parent
-	ls = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --decorate --stat
-	lp = log --pretty=format:'%C(yellow)commit %h %s %Creset%d%Creset (%aN <%aE>)' --patch
+	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
+	l = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset'
+	l1 = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --decorate -n1
+	lf = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --decorate --first-parent
+	ls = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --decorate --stat
+	lp = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --patch
 	lgh = log --pretty=fuller
 	ci = commit
 	rb = rebase
@@ -37,6 +37,8 @@
 	hups = push --force-with-lease
 	trash = stash drop
 	shuffle = "!f() { git rm -r --cached . && git add .; }; f"
+[pull]
+	rebase = false
 [push]
 	default = simple
 	autoSetupRemote = true
