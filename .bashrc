@@ -99,7 +99,7 @@ function _virtualenv_info(){
 }
 
 # go
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/Code/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # rbenv
