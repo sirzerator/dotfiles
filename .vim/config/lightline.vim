@@ -6,7 +6,7 @@ if exists("g:plugs['lightline.vim']")
 	\ 'separator': { 'left': '', 'right': '' },
 	\ 'subseparator': { 'left': '', 'right': '' },
 	\ 'active': {
-	\   'left': [ [ 'fugitive' ], [ 'readonly', 'filename', 'modified' ] ],
+	\   'left': [ [ 'mode', 'fugitive' ], [ 'readonly', 'filename', 'modified' ] ],
 	\   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 	\ },
 	\ 'inactive': {
@@ -25,6 +25,20 @@ if exists("g:plugs['lightline.vim']")
 	\   'fugitive': 'LightlineFugitive',
 	\   'readonly': 'LightLineReadonly',
 	\ },
+	\ }
+
+	let g:lightline.mode_map = {
+	\ 'n' : 'N',
+	\ 'i' : 'I',
+	\ 'R' : 'R',
+	\ 'v' : 'V',
+	\ 'V' : 'VL',
+	\ "\<C-v>": 'VB',
+	\ 'c' : 'C',
+	\ 's' : 'S',
+	\ 'S' : 'SL',
+	\ "\<C-s>": 'SB',
+	\ 't': 'T',
 	\ }
 
 	function! LightlineFugitive()
