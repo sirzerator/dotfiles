@@ -14,10 +14,7 @@ if exists("g:plugs['lightline.vim']")
 	\   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 	\ },
 	\ 'component_visible_condition': {
-	\   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-	\ },
-	\ 'component': {
-	\   'fugitive': '%{(exists("*fugitive#head") && ""!=fugitive#head())?"\ue0a0 ".fugitive#head():""}'
+	\   'fugitive': '(exists("*FugitiveHead) && ""!=FugitiveHead()))'
 	\ },
 	\ 'component_function': {
 	\   'modified': 'LightLineModified',
@@ -25,9 +22,18 @@ if exists("g:plugs['lightline.vim']")
 	\   'fileformat': 'LightLineFileformat',
 	\   'filetype': 'LightLineFiletype',
 	\   'fileencoding': 'LightLineFileencoding',
+	\   'fugitive': 'LightlineFugitive',
 	\   'readonly': 'LightLineReadonly',
 	\ },
 	\ }
+
+	function! LightlineFugitive()
+		if exists('*FugitiveHead')
+			let branch = FugitiveHead()
+			return branch !=# '' ? ''.branch : ''
+		endif
+		return ''
+	endfunction
 
 	function! LightLineModified()
 		return &ft =~ 'help\|qf\|netrw\|fugitiveblame' ? '' : &modified ? '+' : &modifiable ? '' : '-'
