@@ -13,9 +13,6 @@ if exists("g:plugs['lightline.vim']")
 	\   'left': [ [ 'readonly', 'filename', 'modified' ] ],
 	\   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 	\ },
-	\ 'component_visible_condition': {
-	\   'fugitive': '(exists("*FugitiveHead) && ""!=FugitiveHead()))'
-	\ },
 	\ 'component_function': {
 	\   'modified': 'LightLineModified',
 	\   'filename': 'LightLineFilename',
