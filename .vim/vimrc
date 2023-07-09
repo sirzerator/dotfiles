@@ -19,6 +19,7 @@ call plug#begin()
 	Plug 'fatih/vim-go'
 	Plug 'itchyny/lightline.vim'
 	Plug 'jceb/vim-orgmode'
+	Plug 'julialang/julia-vim'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'jwalton512/vim-blade'
