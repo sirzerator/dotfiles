@@ -128,6 +128,10 @@ export NVM_DIR="/home/emile/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
+# sbcl
+export SBCL_HOME="/usr/lib64/sbcl"
+export SBCL_SOURCE_ROOT="/usr/lib64/sbcl/src"
+
 function _generate_prompt() {
 	local last_command_exit_code=$?
 
