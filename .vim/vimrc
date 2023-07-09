@@ -24,6 +24,7 @@ call plug#begin()
 	Plug 'junegunn/fzf.vim'
 	Plug 'jwalton512/vim-blade'
 	Plug 'kchmck/vim-coffee-script'
+	Plug 'kovisoft/slimv'
 	Plug 'leafgarland/typescript-vim'
 	Plug 'mbbill/undotree'
 	Plug 'mhinz/vim-signify'
@@ -187,7 +188,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remove whitespace in selected file types
-autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript,lisp autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
