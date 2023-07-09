@@ -196,12 +196,12 @@ endif
 let g:netrw_sftp_cmd="sftp -q"
 
 " Terminal
-map <Leader>tv :vert term ++close<cr>
-tmap <Leader>tv <c-w>vert :term ++close<cr>
-map <Leader>th :term ++close<cr>
-tmap <Leader>th <c-w>:term ++close<cr>
-map <Leader>T :tab term ++close<cr>
-tmap <Leader>T <c-w>:tab term ++close<cr>
+map <Leader>tv :let vim_root=getcwd()<CR>:lcd %:p:h<CR>:vert term ++close<CR><C-[>h<ESC>:exe "lcd " . vim_root<CR><C-w>l
+tmap <Leader>tv <c-[>:vert :term ++close<CR>
+map <Leader>th :let vim_root=getcwd()<CR>:lcd %:p:h<CR>:term ++close<CR><C-[>h<ESC>:exe "lcd " . vim_root<CR><C-w>l
+tmap <Leader>th <c-[>:term ++close<CR>
+map <Leader>T :let vim_root=getcwd()<CR>:lcd %:p:h<CR>:tab term ++close<CR><C-[>NTH<ESC>:exe "lcd " . vim_root<CR>TLi
+tmap <Leader>T <c-[>:tab term ++close<CR>
 set termwinkey=<C-[>
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
