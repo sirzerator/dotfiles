@@ -10,7 +10,7 @@ esac
 HISTCONTROL=ignoreboth # Ignore duplicates and lines starting with a space
 shopt -s histappend # Append to the history file, don't overwrite it
 HISTSIZE=-1 # Remember everything
-HISTFILESIZE=100000 # Only save the last 100 000 lines
+HISTFILESIZE=200000 # Only save the last 200 000 lines
 
 # Low on memory? Abort everything
 function panic() {
