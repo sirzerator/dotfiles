@@ -83,7 +83,7 @@ nnoremap <F10> :redraw!<CR>
 let g:netrw_banner=0
 " Open netrw at current buffer path
 command! E :e %:p:h
-autocmd filetype netrw nmap <buffer> o <cr>
+autocmd filetype netrw nmap <buffer> o <CR>
 
 " nnoremap <F3> :set paste!<CR> " Handled by terminus
 nnoremap <F5> :make<CR>
@@ -130,11 +130,15 @@ set softtabstop=4
 nnoremap <silent> <F6> :let &ts=(&ts*2 > 16 ? 2 : &ts*2)<CR>:let &sw=&ts<CR>:let &sts=&ts<CR>:echo "Tab size: " . &ts<CR>
 nnoremap <silent> <F7> :set expandtab!<CR>:set expandtab?<CR>
 
-" Set backup directories to sensible values
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
+" Configure backup, undo and swaps
+set writebackup
+set nobackup
+set backupcopy=auto
+set backupdir=~/.vim/backup//
+set swapfile
+set directory^=~/.vim/swap//
 set undofile
-set undodir=~/.vim/undo
+set undodir^=~/.vim/undo//
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
