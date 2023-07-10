@@ -10,4 +10,8 @@ set laststatus=2
 set textwidth=72
 set backspace=indent,eol,start
 
-startinsert
+set incsearch            " do incremental search
+set hlsearch             " highlight search
+set ignorecase smartcase " ignore case except when mixed case
+" Use <F4> to clear the highlighting of :set hlsearch.
+nnoremap <silent> <F4> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
