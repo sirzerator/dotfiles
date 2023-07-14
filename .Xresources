@@ -49,4 +49,4 @@ URxvt*color15: #FFFFFF
 ssh-askpass*background: #FFFFFF
 
 ! default cursor theme
-Xcursor.theme: neutral
+Xcursor.theme: Neutral++
