@@ -10,7 +10,7 @@ trap 'rm -rf $TMP_ROOT' EXIT
 
 echo "Syncing tracked files from home directory to this repository..."
 
-find . -type f ! -path '*.git*' ! -name README.md ! -name install.sh ! -name sync.sh  -printf '%P\n' > $TMP_ROOT/filelist
+find . -type f ! -path '*.git/*' ! -name README.md ! -name install.sh ! -name sync.sh  -printf '%P\n' > $TMP_ROOT/filelist
 
 for FILE in $(cat $TMP_ROOT/filelist)
 do
