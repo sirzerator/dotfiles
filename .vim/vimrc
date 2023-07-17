@@ -18,7 +18,6 @@ call plug#begin()
 	Plug 'evanleck/vim-svelte', { 'branch': 'main' }
 	Plug 'fatih/vim-go'
 	Plug 'itchyny/lightline.vim'
-	Plug 'jceb/vim-orgmode'
 	Plug 'julialang/julia-vim'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
@@ -45,6 +44,7 @@ call plug#begin()
 	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 	Plug 'vim-scripts/matchit.zip'
+	Plug 'vimwiki/vimwiki'
 	Plug 'w0rp/ale'
 	Plug 'wincent/terminus'
 call plug#end()
