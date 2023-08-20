@@ -20,13 +20,13 @@
 	rbc = rebase --continue
 	rba = rebase --abort
 	rbs = rebase --skip
-	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
-	l = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset'
-	l1 = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --decorate -n1
-	lf = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --decorate --first-parent
-	ls = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --decorate --stat
-	lp = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --patch
+	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
+	l = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset'
+	l1 = log --pretty=format:'%Cred%H%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate -n1
+	lf = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --first-parent
+	ls = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --stat
+	lp = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --patch
 	lgh = log --pretty=fuller
 	ci = commit
 	rb = rebase
