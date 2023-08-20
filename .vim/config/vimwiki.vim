@@ -7,6 +7,7 @@ if exists("g:plugs['vimwiki']")
 				\ 10: 'Octobre', 11: 'Novembre', 12: 'Décembre'
 				\ }
 	let g:vimwiki_list = [{'path': '~/NextCloud/documents/wiki/', 'auto_diary_index': 1, 'diary_header': 'Journal', 'diary_rel_path': 'journal/', 'diary_index': 'journal', 'diary_frequency': 'weekly', 'diary_start_week_day': 'sunday' }]
+	let g:vimwiki_global_ext = 0
 
 	autocmd BufNewFile */journal/*.wiki 0r ~/.vim/templates/journal.skeleton
 	autocmd BufEnter */journal/*.wiki setlocal complete=k~/NextCloud/documents/journal/**/*
@@ -15,7 +16,8 @@ if exists("g:plugs['vimwiki']")
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> done ×
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> moved >
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> note -
-	autocmd BufEnter */journal/*.wiki iabbrev <buffer> event o
+	autocmd BufEnter */journal/*.wiki iabbrev <buffer> event ○
+	autocmd BufEnter */journal/*.wiki iabbrev <buffer> done_event ●
 
 	autocmd BufEnter */journal/*.wiki syntax match JournalDone /^×.*/     " lines containing 'done'  items: ×
 	autocmd BufEnter */journal/*.wiki syntax match JournalTodo /^·.*/     " lines containing 'todo'  items: ·
