@@ -25,7 +25,7 @@
 	l = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset'
 	l1 = log --pretty=format:'%Cred%H%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate -n1
 	lf = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --first-parent
-	ls = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --stat
+	ls = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --stat
 	lp = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --patch
 	lgh = log --pretty=fuller
 	ci = commit
