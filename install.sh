@@ -29,15 +29,7 @@ do
 
 		echo " → Differs. What should we do?"
 		echo
-		echo "SOURCE"
-		echo '---'
-		cat $DIRNAME/$FILE
-		echo
-		echo "TARGET"
-		echo '---'
-		cat ~/$FILE
-		echo
-		echo "diff SOURCE TARGET"
+		echo "diff $DIRNAME/$FILE ~/$FILE"
 		echo '---'
 		diff $DIRNAME/$FILE ~/$FILE || true
 		echo "u: Update ; n: Next"

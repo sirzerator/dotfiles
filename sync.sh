@@ -9,6 +9,7 @@ TMP_ROOT=$(mktemp -d "/tmp/${BASENAME}.XXXXXX")
 trap 'rm -rf $TMP_ROOT' EXIT
 
 echo "Syncing tracked files from home directory to this repository..."
+read
 
 find . -type f ! -path '*.git/*' ! -name README.md ! -name install.sh ! -name sync.sh  -printf '%P\n' > $TMP_ROOT/filelist
 
@@ -21,15 +22,7 @@ do
 	else
 		echo " → Differs. What should we do?"
 		echo
-		echo "SOURCE"
-		echo '---'
-		cat ~/$FILE
-		echo
-		echo "TARGET"
-		echo '---'
-		cat $DIRNAME/$FILE
-		echo
-		echo "diff SOURCE TARGET"
+		echo "diff ~/$FILE $DIRNAME/$FILE"
 		echo '---'
 		diff ~/$FILE $DIRNAME/$FILE || true
 		echo "u: Update ; n: Next"
