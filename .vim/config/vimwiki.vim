@@ -18,17 +18,20 @@ if exists("g:plugs['vimwiki']")
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> note -
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> event ○
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> done_event ●
+	autocmd BufEnter */journal/*.wiki iabbrev <buffer> urgent *
 
-	autocmd BufEnter */journal/*.wiki syntax match JournalDone /^×.*/     " lines containing 'done'  items: ×
-	autocmd BufEnter */journal/*.wiki syntax match JournalTodo /^·.*/     " lines containing 'todo'  items: ·
-	autocmd BufEnter */journal/*.wiki syntax match JournalEvent /^○.*/    " lines containing 'event' items: ○
-	autocmd BufEnter */journal/*.wiki syntax match JournalEventDone /^●.*/    " lines containing 'done event' items: ●
-	autocmd BufEnter */journal/*.wiki syntax match JournalNote /^- .*/    " lines containing 'note'  items: -
-	autocmd BufEnter */journal/*.wiki syntax match JournalMoved /^>.*/    " lines containing 'moved' items: >
+	autocmd BufEnter */journal/*.wiki syntax match JournalDone /^×.*/      " lines containing 'done' items: ×
+	autocmd BufEnter */journal/*.wiki syntax match JournalTodo /^·.*/      " lines containing 'todo' items: ·
+	autocmd BufEnter */journal/*.wiki syntax match JournalEvent /^○.*/     " lines containing 'event' items: ○
+	autocmd BufEnter */journal/*.wiki syntax match JournalEventDone /^●.*/ " lines containing 'done event' items: ●
+	autocmd BufEnter */journal/*.wiki syntax match JournalNote /^- .*/     " lines containing 'note' items: -
+	autocmd BufEnter */journal/*.wiki syntax match JournalMoved /^>.*/     " lines containing 'moved' items: >
+	autocmd BufEnter */journal/*.wiki syntax match JournalUrgent /^\*.*/   " lines containing 'urgent' items: *
 
 	autocmd ColorScheme * highlight JournalDone   ctermfg=12  " bright black
 	autocmd ColorScheme * highlight JournalEvent  ctermfg=6   " cyan
 	autocmd ColorScheme * highlight JournalEventDone  ctermfg=4   " blue
 	autocmd ColorScheme * highlight JournalMoved  ctermfg=5   " magenta
 	autocmd ColorScheme * highlight JournalNote   ctermfg=3   " yellow	
+	autocmd ColorScheme * highlight JournalUrgent   ctermfg=160   " red	
 endif
