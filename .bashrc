@@ -23,12 +23,14 @@ function panic() {
 	return
 };
 
-FREEMEM=$(LANG="C" vmstat -s -SM | grep free | sed -e 's/^[[:space:]]*//' | cut -d' ' -f 1 | cat - <(echo "0") | paste -s -d+ - | bc)
-if test $FREEMEM -gt 0 && test $FREEMEM -lt 500
+FREEMEM=$(LANG="C" vmstat -s -SM | grep 'free memory' | sed -e 's/^[[:space:]]*//' | cut -d' ' -f 1 | cat - <(echo "0") | paste -s -d+ - | bc)
+SWAPCACHE=$(LANG="C" vmstat -s -SM | grep 'swap cache' | sed -e 's/^[[:space:]]*//' | cut -d' ' -f 1 | cat - <(echo "0") | paste -s -d+ - | bc)
+if test $FREEMEM -lt 400 && test $SWAPCACHE -lt 600
 then
 	panic
 fi
 unset FREEMEM
+unset SWAPCACHE
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
