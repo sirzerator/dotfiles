@@ -104,7 +104,7 @@ then
 	sudo apt-get install -y nodejs
 fi
 
-if ! command -v nvm > /dev/null
+if [ ! -s "$HOME/.nvm/nvm.sh" ]
 then
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 	nvm install v20
