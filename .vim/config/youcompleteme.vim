@@ -3,4 +3,6 @@ if exists("g:plugs['youcompleteme']")
 
 	let g:ycm_auto_hover = ''
 	nmap <leader>d <plug>(YCMHover)
+
+	let g:ycm_show_diagnostics_ui = 0
 endif
