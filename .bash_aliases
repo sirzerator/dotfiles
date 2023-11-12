@@ -1,11 +1,11 @@
-if ! command -v exa &> /dev/null
+if ! command -v eza &> /dev/null
 then
 	alias ll='ls -alF'
 	alias la='ls -A'
 	alias l='ls -CF'
 else
-	alias ls='exa --time-style=long-iso'
-	alias ll='ls -alF'
+	alias ls='eza --time-style=long-iso'
+	alias ll='ls -aglF'
 	alias la='ls -a'
 	alias lt='ls -T -L2'
 	alias lta='ls -T -L2 -a'
