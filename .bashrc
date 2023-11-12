@@ -98,6 +98,8 @@ function _virtualenv_info(){
 # go
 export GOPATH="$HOME/Code/go"
 export PATH="$PATH:$GOPATH/bin"
+export FX_THEME=6
+[ -x $GOPATH/bin/gocomplete ] && complete -C $GOPATH/bin/gocomplete go
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -124,6 +126,11 @@ source ~/.wp-completion.bash
 export NVM_DIR="/home/emile/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# raku
+rakudodir=/home/emile/Code/rakudo
+export PATH="$rakudodir/bin:$rakudodir/share/perl6/site/bin:$rakudodir/share/perl6/vendor/bin:$rakudodir/share/perl6/core/bin:$PATH"
+unset rakudodir
 
 # sbcl
 export SBCL_HOME="/usr/lib64/sbcl"
