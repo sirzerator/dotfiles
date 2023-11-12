@@ -64,6 +64,12 @@ cargo install exa
 
 echo " ✓ Done."
 
+echo " → Go"
+
+go install github.com/posener/complete/gocomplete@latest
+
+echo " ✓ Done."
+
 echo " → Rbenv"
 
 if ! test -d ~/.rbenv
