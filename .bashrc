@@ -80,7 +80,28 @@ export PATH="$PATH:/home/emile/.local/bin"
 
 # Apps configuration
 
-# Python
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# composer
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+# go
+export GOPATH="$HOME/Code/go"
+export PATH="$PATH:$GOPATH/bin"
+export FX_THEME=6
+[ -x $GOPATH/bin/gocomplete ] && complete -C $GOPATH/bin/gocomplete go
+
+# nvm
+export NVM_DIR="/home/emile/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# phpbrew
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+
+# python
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 function _virtualenv_info(){
     # Get Virtual Env
@@ -95,46 +116,25 @@ function _virtualenv_info(){
     [[ -n "$venv" ]] && echo "[$python_version:$venv] "
 }
 
-# go
-export GOPATH="$HOME/Code/go"
-export PATH="$PATH:$GOPATH/bin"
-export FX_THEME=6
-[ -x $GOPATH/bin/gocomplete ] && complete -C $GOPATH/bin/gocomplete go
+# raku
+rakudodir=/home/emile/Code/rakudo
+export PATH="$rakudodir/bin:$rakudodir/share/perl6/site/bin:$rakudodir/share/perl6/vendor/bin:$rakudodir/share/perl6/core/bin:$PATH"
+unset rakudodir
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 eval "$(rbenv init -)"
 
-# composer
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-
-# cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
-# yarn
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# sbcl
+export SBCL_HOME="/usr/lib64/sbcl"
+export SBCL_SOURCE_ROOT="/usr/lib64/sbcl/src"
 
 # wp-cli
 source ~/.wp-completion.bash
 
-# phpbrew
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
-
-# nvm
-export NVM_DIR="/home/emile/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# raku
-rakudodir=/home/emile/Code/rakudo
-export PATH="$rakudodir/bin:$rakudodir/share/perl6/site/bin:$rakudodir/share/perl6/vendor/bin:$rakudodir/share/perl6/core/bin:$PATH"
-unset rakudodir
-
-# sbcl
-export SBCL_HOME="/usr/lib64/sbcl"
-export SBCL_SOURCE_ROOT="/usr/lib64/sbcl/src"
+# yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 function _generate_prompt() {
 	local last_command_exit_code=$?
