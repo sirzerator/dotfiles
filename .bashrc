@@ -87,6 +87,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # composer
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
+# dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT='true'
+export PATH="$PATH:$HOME/.dotnet/tools"
+
 # go
 export GOPATH="$HOME/Code/go"
 export PATH="$PATH:$GOPATH/bin"

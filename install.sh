@@ -117,3 +117,16 @@ then
 fi
 
 echo " ✓ Done."
+
+echo " → Dotnet"
+
+if ! command -v dotnet > /dev/null
+then
+	wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O $TMP_ROOT/packages-microsoft-prod.deb
+	sudo dpkg -i $TMP_ROOT/packages-microsoft-prod.deb
+	rm $TMP_ROOT/packages-microsoft-prod.deb
+fi
+
+sudo apt-get update && sudo apt-get install -y dotnet-sdk-8.0
+
+echo " ✓ Done."
