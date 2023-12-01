@@ -30,6 +30,7 @@ call plug#begin()
 	Plug 'mhinz/vim-signify'
 	Plug 'mxw/vim-jsx'
 	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
+	Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': ':CocInstall marketplace' }
 	Plug 'noahfrederick/vim-skeleton'
 	Plug 'omnisharp/omnisharp-vim'
 	Plug 'pangloss/vim-javascript'
@@ -44,11 +45,11 @@ call plug#begin()
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-speeddating'
 	Plug 'tpope/vim-surround'
-	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 	Plug 'vim-scripts/matchit.zip'
 	Plug 'vimwiki/vimwiki'
 	Plug 'wincent/terminus'
+"	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 call plug#end()
 
 runtime! config/**/*.vim
@@ -71,6 +72,8 @@ set smarttab
 " make backspace behave like most other apps
 set backspace=indent,eol,start
 
+set completeopt=menuone,noinsert,noselect,popuphidden
+set completepopup=highlight:Pmenu,border:off
 set complete-=i          " don't autocomplete in insert mode
 set display+=lastline    " display as much as possible of a long line
 set scrolloff=2          " display x lines above or below the cursor
@@ -192,7 +195,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remove whitespace in selected file types
-autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript,lisp autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript,lisp,cs autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
