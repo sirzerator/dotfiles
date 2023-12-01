@@ -36,6 +36,7 @@ call plug#begin()
 	Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 	Plug 'posva/vim-vue'
 	Plug 'raimondi/delimitmate'
+	Plug 'rrethy/vim-illuminate'
 	Plug 'rust-lang/rust.vim'
 	Plug 'slashmili/alchemist.vim'
 	Plug 'tpope/vim-fugitive'
