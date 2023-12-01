@@ -60,7 +60,7 @@ fi
 
 cargo install du-dust
 cargo install bat
-cargo install exa
+cargo install eza
 
 echo " ✓ Done."
 
