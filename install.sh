@@ -53,9 +53,10 @@ fi
 
 echo " → Rust"
 
-if ! test -d ~/.rbenv
+if ! test -d ~/.rustup
 then
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	. "$HOME/.cargo/env"
 fi
 
 cargo install du-dust
@@ -66,6 +67,7 @@ echo " ✓ Done."
 
 echo " → Go"
 
+sudo apt install golang
 go install github.com/posener/complete/gocomplete@latest
 
 echo " ✓ Done."
@@ -84,7 +86,6 @@ echo " → Composer"
 if ! command -v composer > /dev/null
 then
 	php -r "copy('https://getcomposer.org/installer', '$TMP_ROOT/composer-setup.php');"
-	php -r "if (hash_file('sha384', '$TMP_ROOT/composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('$TMP_ROOT/composer-setup.php'); } echo PHP_EOL;"
 	php $TMP_ROOT/composer-setup.php --install-dir=$HOME/.local/bin/ --filename=composer
 	chmod +x $HOME/.local/bin/composer
 fi
@@ -113,8 +114,12 @@ fi
 if [ ! -s "$HOME/.nvm/nvm.sh" ]
 then
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-	nvm install v20
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install v20
+
 
 echo " ✓ Done."
 
