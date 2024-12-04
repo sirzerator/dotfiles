@@ -6,8 +6,8 @@ if exists("g:plugs['vimwiki']")
 				\ 7: 'Juillet', 8: 'Août', 9: 'Septembre',
 				\ 10: 'Octobre', 11: 'Novembre', 12: 'Décembre'
 				\ }
-	let g:vimwiki_list = [{'path': '~/NextCloud/documents/wiki/', 'auto_diary_index': 1, 'diary_header': 'Journal', 'diary_rel_path': 'journal/', 'diary_index': 'journal', 'diary_frequency': 'weekly', 'diary_start_week_day': 'sunday' }]
-	let g:vimwiki_global_ext = 1
+	let g:vimwiki_list = [{'path': '~/Nextcloud/documents/wiki/', 'auto_diary_index': 1, 'diary_header': 'Journal', 'diary_rel_path': 'journal/', 'diary_index': 'journal', 'diary_frequency': 'weekly', 'diary_start_week_day': 'sunday' }]
+	let g:vimwiki_global_ext = 0
 
 	autocmd BufNewFile */journal/*.wiki 0r ~/.vim/templates/journal.skeleton
 	autocmd BufEnter */journal/*.wiki setlocal complete=k~/NextCloud/documents/journal/**/*

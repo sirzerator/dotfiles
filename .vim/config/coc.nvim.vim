@@ -3,9 +3,9 @@ if exists("g:plugs['coc.nvim']")
 				\ coc#pum#visible() ? coc#pum#next(1) :
 				\ coc#refresh()
 	inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
-	inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+	inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#insert()
 				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-	inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm()
+	inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#insert()
 				\: "\<TAB>"
 
 	function! CheckBackspace() abort

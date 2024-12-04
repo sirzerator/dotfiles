@@ -5,12 +5,15 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim -u ~/.vim/vimrc.git
 	pager = less -X
+	autocrlf = input
 [alias]
 	st = status --short --branch
 	co = checkout
 	praise = blame
 	cp = cherry-pick
+	cpa = cherry-pick --abort
 	cpc = cherry-pick --continue
+	cps = cherry-pick --skip
 	changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo \"Changelog for $r\n$(git log --reverse --no-merges --format='* %s' $r)\"; }; f"
 	unstash = "stash pop"
 	peep = "stash list --stat"
@@ -29,6 +32,7 @@
 	lp = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --patch
 	lgh = log --pretty=fuller
 	ci = commit
+	cf = commit --fixup
 	rb = rebase
 	preview = diff --staged
 	cia = commit --amend

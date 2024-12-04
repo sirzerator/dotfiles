@@ -16,8 +16,10 @@ endfunction
 call plug#begin()
 	Plug 'dense-analysis/ale'
 	Plug 'elixir-lang/vim-elixir'
+	Plug 'slashmili/alchemist.vim'
 	Plug 'evanleck/vim-svelte', { 'branch': 'main' }
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+	Plug 'https://github.com/adelarsq/vim-matchit'
 	Plug 'itchyny/lightline.vim'
 	Plug 'julialang/julia-vim'
 	Plug 'junegunn/fzf'
@@ -26,16 +28,17 @@ call plug#begin()
 	Plug 'kchmck/vim-coffee-script'
 	Plug 'kovisoft/slimv'
 	Plug 'leafgarland/typescript-vim'
+	Plug 'maxmellon/vim-jsx-pretty'  
 	Plug 'mbbill/undotree'
 	Plug 'mhinz/vim-signify'
-	Plug 'mxw/vim-jsx'
 	Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
-	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'noahfrederick/vim-skeleton'
 	Plug 'omnisharp/omnisharp-vim'
 	Plug 'pangloss/vim-javascript'
 	Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 	Plug 'posva/vim-vue'
+	Plug 'pprovost/vim-ps1'
 	Plug 'raimondi/delimitmate'
 	Plug 'rrethy/vim-illuminate'
 	Plug 'rust-lang/rust.vim'
@@ -46,10 +49,9 @@ call plug#begin()
 	Plug 'tpope/vim-speeddating'
 	Plug 'tpope/vim-surround'
 	Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
-	Plug 'vim-scripts/matchit.zip'
 	Plug 'vimwiki/vimwiki'
 	Plug 'wincent/terminus'
-"	Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
+"	Plug 'mxw/vim-jsx'
 call plug#end()
 
 runtime! config/**/*.vim
@@ -86,6 +88,10 @@ set nolist
 nnoremap <F2> :Git<CR>
 nnoremap <F8> :set list!<CR>
 nnoremap <F10> :redraw!<CR>
+
+" Disabled F1
+:nmap <F1> :echo<CR>
+:imap <F1> <C-o>:echo<CR>
 
 let g:netrw_banner=0
 " Open netrw at current buffer path
@@ -195,7 +201,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remove whitespace in selected file types
-autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript,lisp,cs autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee,ruby,eruby,html,scss,erlang,javascript,php,sh,python,markdown,rust,vue,typescript,lisp,cs,typescriptreact,ps1 autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -216,3 +222,7 @@ tmap <Leader>th <c-[>:term ++close<CR>
 map <Leader>T :let vim_root=getcwd()<CR>:lcd %:p:h<CR>:tab term ++close<CR><C-[>NTH<ESC>:exe "lcd " . vim_root<CR>TLi
 tmap <Leader>T <c-[>:tab term ++close<CR>
 set termwinkey=<C-[>
+
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir

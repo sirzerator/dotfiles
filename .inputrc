@@ -20,5 +20,5 @@ set bind-tty-special-chars off
 "\C-w": unix-filename-rubout
 
 set editing-mode vi
-set vi-cmd-mode-string :\ 
-set vi-ins-mode-string +\ 
+set vi-cmd-mode-string : 
+set vi-ins-mode-string + 

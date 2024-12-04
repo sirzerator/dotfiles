@@ -35,3 +35,7 @@ if command -v rlwrap &> /dev/null
 then
 	alias sbcl="rlwrap sbcl"
 fi
+
+alias dive="docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive"
+
+alias gam="/home/emile/bin/gam7/gam"
