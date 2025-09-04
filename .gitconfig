@@ -6,6 +6,7 @@
 	editor = vim -u ~/.vim/vimrc.git
 	pager = less -X
 	autocrlf = input
+	hooksPath = /home/emile/.githooks
 [alias]
 	st = status --short --branch
 	co = checkout
@@ -50,6 +51,7 @@
 	enabled = false
 [rebase]
 	autosquash = true
+	autoStash = true
 [cola]
 	spellcheck = false
 [init]

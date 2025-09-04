@@ -97,6 +97,9 @@ export PATH="$PATH:$GOPATH/bin"
 export FX_THEME=6
 [ -x $GOPATH/bin/gocomplete ] && complete -C $GOPATH/bin/gocomplete go
 
+# kubernetes
+source $HOME/.kube/completion.bash.inc
+
 # nvm
 export NVM_DIR="/home/emile/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
@@ -167,7 +170,14 @@ export VAGRANT_ALIAS_FILE="~/.config/vagrant_aliases"
 
 export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 
+export COMPOSE_MENU=0
+
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
+
+for file in ~/.bashrc.d/*.bashrc;
+do
+	source "$file"
+done

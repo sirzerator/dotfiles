@@ -1,0 +1,24 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail
+#set -x # For debugging
+
+# $1 -- Name of the remote to which the push is being done
+# $2 -- URL to which the push is being done
+
+REMOTE="$1"
+URL="$2"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+
+if [[ -e .noverify ]]; then
+	exit 0
+fi
+
+SINCE="$(git log --reverse --format="%ai" -1 origin/$(git branch --show-current))"
+
+if git log --since="$SINCE" --format='%s' | grep -E '^fixup!' > /dev/null; then
+	echo 'Push prevented because of "fixup!" commits:'
+	echo
+	git log --since="$SINCE" --format='%s' | grep -E '^fixup!'
+	echo
+	exit 1
+fi
