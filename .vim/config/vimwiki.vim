@@ -10,7 +10,7 @@ if exists("g:plugs['vimwiki']")
 	let g:vimwiki_global_ext = 0
 
 	autocmd BufNewFile */journal/*.wiki 0r ~/.vim/templates/journal.skeleton
-	autocmd BufEnter */journal/*.wiki setlocal complete=k~/NextCloud/documents/journal/**/*
+	autocmd BufEnter */journal/*.wiki setlocal complete=k~/Nextcloud/documents/journal/**/*
 
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> todo ·
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> done ×

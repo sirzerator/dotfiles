@@ -46,6 +46,8 @@ done
 
 echo "Installing tools..."
 
+mkdir -p $HOME/.bashrc.d
+
 if test -f /etc/issue.net && cat /etc/issue.net | grep Debian > /dev/null
 then
 	sudo apt install build-essential cmake python-is-python3 vim-gtk3 python3-venv python3-virtualenv \

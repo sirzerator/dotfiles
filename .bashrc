@@ -172,7 +172,6 @@ export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 
 export COMPOSE_MENU=0
 
-# Alias definitions
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
