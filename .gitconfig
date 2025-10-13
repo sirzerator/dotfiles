@@ -8,47 +8,49 @@
 	autocrlf = input
 	hooksPath = /home/emile/.githooks
 [alias]
-	st = status --short --branch
+	cf = commit --fixup
+	changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo \"Changelog for $r\n$(git log --reverse --no-merges --format='* %s' $r)\"; }; f"
+	ci = commit
+	cia = commit --amend
 	co = checkout
-	praise = blame
 	cp = cherry-pick
 	cpa = cherry-pick --abort
 	cpc = cherry-pick --continue
 	cps = cherry-pick --skip
-	changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo \"Changelog for $r\n$(git log --reverse --no-merges --format='* %s' $r)\"; }; f"
-	unstash = "stash pop"
-	peep = "stash list --stat"
 	dig = "stash show stash@{0} -v"
-	ponder = "branch -lv"
-	rbi = rebase -i
-	rbc = rebase --continue
-	rba = rebase --abort
-	rbs = rebase --skip
-	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
+	hups = push --force-with-lease
 	l = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset'
 	l1 = log --pretty=format:'%Cred%H%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate -n1
 	lf = log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --first-parent
-	ls = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --stat
-	lp = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --patch
 	lgh = log --pretty=fuller
-	ci = commit
-	cf = commit --fixup
-	rb = rebase
+	ll = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	lls = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat"
+	lp = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --patch
+	ls = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --stat
+	peep = "stash list --stat"
+	ponder = "branch -lv"
+	praise = blame -w
 	preview = diff --staged
-	cia = commit --amend
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase -i
+	rbs = rebase --skip
 	resub = !sh -c 'git submodule init && git submodule sync && git submodule update'
-	trace = blame HEAD~1
-	hups = push --force-with-lease
-	trash = stash drop
+	search = l -p -S
 	shuffle = "!f() { git rm -r --cached . && git add .; }; f"
+	st = status --short --branch
+	trace = blame HEAD~1
+	trash = stash drop
+	unstash = "stash pop"
+	wdiff = diff --word-diff
 [pull]
 	rebase = false
 [push]
 	default = simple
 	autoSetupRemote = true
 [rerere]
-	enabled = false
+	enabled = true
 [rebase]
 	autosquash = true
 	autoStash = true
