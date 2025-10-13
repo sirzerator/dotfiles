@@ -48,7 +48,11 @@ echo "Installing tools..."
 
 if test -f /etc/issue.net && cat /etc/issue.net | grep Debian > /dev/null
 then
-	sudo apt install build-essential cmake python-is-python3 vim-gtk3 python3-venv python3-virtualenv
+	sudo apt install build-essential cmake python-is-python3 vim-gtk3 python3-venv python3-virtualenv \
+		hyperfine \
+		ncdu \
+		jq \
+		silversearcher-ag
 fi
 
 echo " → Rust"
@@ -59,9 +63,13 @@ then
 	. "$HOME/.cargo/env"
 fi
 
-cargo install du-dust
-cargo install bat
-cargo install eza
+rustup update
+rustup component add rust-analyzer
+
+cargo install du-dust --locked
+cargo install bat --locked
+cargo install eza --locked
+cargo install xh --locked
 
 echo " ✓ Done."
 
