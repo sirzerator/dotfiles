@@ -13,7 +13,7 @@ if [[ -e .noverify ]]; then
 	exit 0
 fi
 
-SINCE="$(git log --reverse --format="%ai" -1 origin/$(git branch --show-current))"
+SINCE="$(git log --reverse --format="%ai" -1 $(git branch --show-current))"
 
 if git log --since="$SINCE" --format='%s' | grep -E '^fixup!' > /dev/null; then
 	echo 'Push prevented because of "fixup!" commits:'
