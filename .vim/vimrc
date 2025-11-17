@@ -154,6 +154,7 @@ set swapfile
 set directory^=~/.vim/swap//
 set undofile
 set undodir^=~/.vim/undo//
+set viminfo+=n~/.vim/viminfo
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
