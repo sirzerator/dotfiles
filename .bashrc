@@ -97,6 +97,9 @@ export PATH="$PATH:$GOPATH/bin"
 export FX_THEME=6
 [ -x $GOPATH/bin/gocomplete ] && complete -C $GOPATH/bin/gocomplete go
 
+# jetbrains
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+
 # kubernetes
 KUBECONFIG="$HOME/.config/.kube"
 source $KUBECONFIG/completion.bash.inc
