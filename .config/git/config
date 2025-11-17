@@ -2,11 +2,11 @@
 	name = Émile Plourde-Lavoie
 	email = emile@echosvirtuels.com
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/gitignore_global
 	editor = vim -u ~/.vim/vimrc.git
 	pager = less -X
 	autocrlf = input
-	hooksPath = /home/emile/.githooks
+	hooksPath = ~/.config/git/githooks
 [alias]
 	cf = commit --fixup
 	changelog = "!f() { r=${1:-`git describe --tags --abbrev=0`..HEAD}; echo \"Changelog for $r\n$(git log --reverse --no-merges --format='* %s' $r)\"; }; f"
