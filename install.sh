@@ -10,7 +10,7 @@ trap 'rm -rf $TMP_ROOT' EXIT
 
 echo "Installing files in the home directory"
 
-find . -type f ! -path '*.git/*' ! -name README.md ! -name install.sh ! -name sync.sh  -printf '%P\n' > $TMP_ROOT/filelist
+find . -type f ! -path '*.git/*' ! -name .gitmodules ! -name .gitignore ! -name README.md ! -name install.sh ! -name sync.sh  -printf '%P\n' > $TMP_ROOT/filelist
 
 for FILE in $(cat $TMP_ROOT/filelist)
 do
