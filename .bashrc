@@ -98,7 +98,8 @@ export FX_THEME=6
 [ -x $GOPATH/bin/gocomplete ] && complete -C $GOPATH/bin/gocomplete go
 
 # kubernetes
-source $HOME/.kube/completion.bash.inc
+KUBECONFIG="$HOME/.config/.kube"
+source $KUBECONFIG/completion.bash.inc
 
 # nvm
 export NVM_DIR="/home/emile/.nvm"
@@ -176,7 +177,9 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-for file in ~/.bashrc.d/*.bashrc;
-do
-	source "$file"
-done
+if [ -f ~/.bashrc.d/*.bashrc ]; then
+	for file in ~/.bashrc.d/*.bashrc;
+	do
+		source "$file"
+	done
+fi
