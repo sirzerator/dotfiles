@@ -148,12 +148,12 @@ nnoremap <silent> <F7> :set expandtab!<CR>:set expandtab?<CR>
 set writebackup
 set nobackup
 set backupcopy=auto
-set backupdir=~/.vim/backup//
+set backupdir=~/.config/vim/backup//
 set swapfile
-set directory^=~/.vim/swap//
+set directory^=~/.config/vim/swap//
 set undofile
-set undodir^=~/.vim/undo//
-set viminfo+=n~/.vim/viminfo
+set undodir^=~/.config/vim/undo//
+set viminfo+=n~/.config/vim/viminfo
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
