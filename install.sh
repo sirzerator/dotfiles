@@ -120,9 +120,9 @@ echo " ✓ Done."
 
 echo " → PHPBrew"
 
-if ! command -v composer > /dev/null
+if ! command -v phpbrew > /dev/null
 then
-	curl -L -O https://github.com/phpbrew/phpbrew/releases/latest/download/phpbrew.phar > $TMP_ROOT/phpbrew
+	curl -L https://github.com/phpbrew/phpbrew/releases/latest/download/phpbrew.phar > $TMP_ROOT/phpbrew
 	mv $TMP_ROOT/phpbrew $HOME/.local/bin/phpbrew
 	chmod +x $HOME/.local/bin/phpbrew
 fi
