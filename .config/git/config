@@ -40,7 +40,7 @@
 	search = l -p -S
 	shuffle = "!f() { git rm -r --cached . && git add .; }; f"
 	st = status --short --branch
-	trace = blame HEAD~1
+	sweep = "!for branch in $(LANG=C git branch -lv --format '%(refname:short) %(upstream:track)' | grep gone | cut -f1 -d ' '); do git branch -D $branch; done"
 	trash = stash drop
 	unstash = "stash pop"
 	wdiff = diff --word-diff
