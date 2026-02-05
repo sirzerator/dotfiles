@@ -8,13 +8,23 @@ Id_6=6d3ce5ab-c8b9-4fc2-adf0-8e7f8f072329
 Number=6
 Rows=3
 
+[EdgeBarrier]
+CornerBarrier=false
+EdgeBarrier=0
+
 [Effect-magnifier]
 InitialZoom=2.0736
 
 [Plugins]
 desktopchangeosdEnabled=true
 screenedgeEnabled=false
+shakecursorEnabled=false
 thumbnailasideEnabled=true
+
+[TabBox]
+HighlightWindows=false
+MultiScreenMode=1
+MoveMinimizedWindowsToEndOfTabBoxFocusChain=true
 
 [Tiling]
 padding=4
@@ -33,7 +43,7 @@ ShadeHover=true
 TitlebarDoubleClickCommand=Shade
 
 [Xwayland]
-Scale=1.35
+Scale=1.5
 
 [org.kde.kdecoration2]
 ButtonsOnLeft=MFS
