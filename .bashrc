@@ -101,7 +101,7 @@ export FX_THEME=6
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 # kubernetes
-KUBECONFIG="$HOME/.config/.kube"
+KUBECONFIG="$HOME/.config/kube"
 source $KUBECONFIG/completion.bash.inc
 
 # nvm
