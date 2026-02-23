@@ -142,7 +142,8 @@ export SBCL_HOME="/usr/lib64/sbcl"
 export SBCL_SOURCE_ROOT="/usr/lib64/sbcl/src"
 
 # wp-cli
-source ~/.wp-completion.bash
+source ~/.config/wp-cli/wp-completion.bash
+export WP_CLI_CONFIG_PATH="$HOME/.config/wp-cli/config.yml"
 
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
