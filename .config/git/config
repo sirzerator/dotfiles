@@ -29,7 +29,7 @@
 	ls = log --pretty=format:'commit %Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --decorate --stat
 	peep = "stash list --stat"
 	ponder = "branch -lv"
-	praise = blame -w
+	praise = blame -w -C -C -C
 	preview = diff --staged
 	rb = rebase
 	rba = rebase --abort

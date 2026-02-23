@@ -1,4 +1,8 @@
 {
 	"elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
-	"intelephense.environment.phpVersion": "8.2.0"
+	"intelephense.environment.phpVersion": "8.2.0",
+	"zig.enabled": true,
+	"zig.startUpMessage": true,
+	"zig.path": "/usr/bin/zls",
+	"zig.debugLog": false
 }

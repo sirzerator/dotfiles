@@ -1,3 +1,7 @@
+[Compositing]
+AllowTearing=false
+LatencyPolicy=Medium
+
 [Desktops]
 Id_1=dd236ff7-64f2-406b-ba9d-803b5003d3c4
 Id_2=2ad70431-001e-43d9-9b03-220e5a18e483
@@ -25,6 +29,7 @@ thumbnailasideEnabled=true
 HighlightWindows=false
 MultiScreenMode=1
 MoveMinimizedWindowsToEndOfTabBoxFocusChain=true
+OrderMinimizedMode=1
 
 [Tiling]
 padding=4
