@@ -3,3 +3,4 @@ Thumbs.db
 .noverify
 .claude
 CLAUDE.local.md
+**/.claude/settings.local.json

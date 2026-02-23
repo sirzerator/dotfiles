@@ -3,7 +3,7 @@
 	email = emile@echosvirtuels.com
 [core]
 	excludesfile = ~/.config/git/gitignore_global
-	editor = vim -u ~/.vim/vimrc.git
+	editor = vim -u ~/.config/vim/vimrc.git
 	pager = less -X
 	autocrlf = input
 	hooksPath = ~/.config/git/githooks
@@ -60,3 +60,4 @@
 	defaultBranch = master
 [advice]
 	detachedHead = false
+	forceDeleteBranch = false
