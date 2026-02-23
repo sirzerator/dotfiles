@@ -1,3 +1,3 @@
-.vim/plugged
-.vim/swap
-.vim/backup
+.config/vim/plugged
+.config/vim/swap
+.config/vim/backup

@@ -9,7 +9,7 @@ if exists("g:plugs['vimwiki']")
 	let g:vimwiki_list = [{'path': '~/Nextcloud/documents/wiki/', 'auto_diary_index': 1, 'diary_header': 'Journal', 'diary_rel_path': 'journal/', 'diary_index': 'journal', 'diary_frequency': 'weekly', 'diary_start_week_day': 'sunday' }]
 	let g:vimwiki_global_ext = 0
 
-	autocmd BufNewFile */journal/*.wiki 0r ~/.vim/templates/journal.skeleton
+	autocmd BufNewFile */journal/*.wiki 0r ~/.config/vim/templates/journal.skeleton
 	autocmd BufEnter */journal/*.wiki setlocal complete=k~/Nextcloud/documents/journal/**/*
 
 	autocmd BufEnter */journal/*.wiki iabbrev <buffer> todo ·
