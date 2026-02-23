@@ -6,7 +6,7 @@ if exists("g:plugs['lightline.vim']")
 	\ 'separator': { 'left': '', 'right': '' },
 	\ 'subseparator': { 'left': '', 'right': '' },
 	\ 'active': {
-	\   'left': [ [ 'mode', 'fugitive' ], [ 'readonly', 'filename', 'modified' ] ],
+	\   'left': [ [ 'mode', 'fugitive' ], [ 'readonly', 'filename', 'modified', 'claude' ] ],
 	\   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 	\ },
 	\ 'inactive': {
@@ -14,6 +14,7 @@ if exists("g:plugs['lightline.vim']")
 	\   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 	\ },
 	\ 'component_function': {
+	\   'claude': 'ClaudeThinking',
 	\   'modified': 'LightLineModified',
 	\   'filename': 'LightLineFilename',
 	\   'fileformat': 'LightLineFileformat',

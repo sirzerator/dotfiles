@@ -1,3 +1,6 @@
 [submodule ".config/vim/pack/vim-wayland-clipboard/start/vim-wayland-clipboard"]
 	path = .config/vim/pack/vim-wayland-clipboard/start/vim-wayland-clipboard
 	url = https://github.com/jasonccox/vim-wayland-clipboard.git
+[submodule ".config/vim/pack/pasky/start/claude.vim"]
+	path = .config/vim/pack/pasky/start/claude.vim
+	url = git@github.com:sirzerator/claude.vim.git
