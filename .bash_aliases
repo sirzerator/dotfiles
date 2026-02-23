@@ -39,3 +39,5 @@ fi
 alias dive="docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive"
 
 alias gam="/home/emile/bin/gam7/gam"
+
+alias phpmyadmin="docker run --rm --name phpmyadmin --network host -e PMA_HOST=127.0.0.1 -e UPLOAD_LIMIT=1024M phpmyadmin/phpmyadmin"
